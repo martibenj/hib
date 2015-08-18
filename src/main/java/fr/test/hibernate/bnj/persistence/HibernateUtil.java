@@ -1,5 +1,6 @@
 package fr.test.hibernate.bnj.persistence;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -14,10 +15,10 @@ public class HibernateUtil
   private static StandardServiceRegistryBuilder serviceRegistryBuilder = getServiceRegistryBuilder();
   private static StandardServiceRegistry        serviceRegistry        = getServiceRegistry();
   private static SessionFactory                 sessionFactory         = getSessionFactory();
+  private static Session                        session                = null;
 
-  public static void shutdown()
+  public static void closeSessionFactory()
   {
-    // Close caches and connection pools
     getSessionFactory().close();
     getServiceRegistryBuilder().destroy(getServiceRegistry());
   }
@@ -50,7 +51,7 @@ public class HibernateUtil
     return serviceRegistry;
   }
 
-  public static SessionFactory getSessionFactory()
+  private static SessionFactory getSessionFactory()
   {
     if (sessionFactory == null)
     {
@@ -69,4 +70,13 @@ public class HibernateUtil
     return sessionFactory;
   }
 
+  public static Session getSession()
+  {
+    SessionFactory factory = getSessionFactory();
+    if (factory != null && !factory.isClosed())
+    {
+      session = factory.openSession();
+    }
+    return session;
+  }
 }
