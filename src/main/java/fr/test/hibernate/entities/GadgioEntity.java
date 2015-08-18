@@ -16,34 +16,32 @@ import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 @Table(name = "GADGIO")
-public class Gadgio implements Serializable
+public class GadgioEntity implements Serializable
 {
-  public static final String TABLENAME        = "GADGIO";
-
   /** Serial UID */
-  private static final long  serialVersionUID = -8365901147684140166L;
+  private static final long serialVersionUID = -8365901147684140166L;
 
   @Id
   @Column(name = "gadgioId", nullable = false, updatable = false)
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long               gadgioId;
+  private Long              gadgioId;
 
   @Column(name = "nom", nullable = false, unique = false)
-  private String             nom;
+  private String            nom;
 
   @Column(name = "prenom", nullable = false, unique = false)
-  private String             prenom;
+  private String            prenom;
 
   @Column(name = "age", nullable = false, unique = false)
-  private int                age;
+  private int               age;
 
   @Column(name = "percentmochitude", nullable = false, unique = false)
-  private int                pourcentageMochitude;
+  private int               pourcentageMochitude;
 
   @PodamExclude
-  @ManyToOne(fetch = FetchType.LAZY, targetEntity = Entreprise.class, optional = true)
+  @ManyToOne(fetch = FetchType.LAZY, targetEntity = EntrepriseEntity.class, optional = true)
   @JoinColumn(name = "entrepriseId", nullable = true)
-  private Entreprise         entrepriseField;
+  private EntrepriseEntity  entrepriseField;
 
   /*
    * (non-Javadoc)
@@ -91,7 +89,7 @@ public class Gadgio implements Serializable
     {
       return false;
     }
-    Gadgio other = (Gadgio) obj;
+    GadgioEntity other = (GadgioEntity) obj;
     if (age != other.age)
     {
       return false;
@@ -218,7 +216,7 @@ public class Gadgio implements Serializable
   /**
    * @return the entrepriseField
    */
-  public Entreprise getEntrepriseField()
+  public EntrepriseEntity getEntrepriseField()
   {
     return entrepriseField;
   }
@@ -227,7 +225,7 @@ public class Gadgio implements Serializable
    * @param entrepriseField
    *          the entrepriseField to set
    */
-  public void setEntrepriseField(Entreprise entrepriseField)
+  public void setEntrepriseField(EntrepriseEntity entrepriseField)
   {
     this.entrepriseField = entrepriseField;
   }

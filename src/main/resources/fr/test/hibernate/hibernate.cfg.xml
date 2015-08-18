@@ -28,7 +28,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create-drop</property>
         
-        <mapping resource="fr/test/hibernate/Entreprise.hbm.xml"/>
-        <mapping resource="fr/test/hibernate/Gadgio.hbm.xml"/>
+        <mapping resource="fr/test/hibernate/EntrepriseEntity.hbm.xml"/>
+        <mapping resource="fr/test/hibernate/GadgioEntity.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

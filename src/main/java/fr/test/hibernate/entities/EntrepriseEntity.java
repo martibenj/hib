@@ -17,26 +17,25 @@ import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 @Table(name = "ENTREPRISE")
-public class Entreprise implements Serializable
+public class EntrepriseEntity implements Serializable
 {
-
   /** Serial UID */
-  private static final long serialVersionUID = -8365901147684140166L;
+  private static final long  serialVersionUID = -8365901147684140166L;
 
   @Id
   @Column(name = "entrepriseId", nullable = false, updatable = false)
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long              entrepriseId;
+  private Long               entrepriseId;
 
   @Column(name = "nomQuiDechire", nullable = false, unique = true)
-  private String            nomQuiDechire;
+  private String             nomQuiDechire;
 
   @Column(name = "slogan", nullable = false, unique = false)
-  private String            slogan;
+  private String             slogan;
 
   @PodamExclude
-  @OneToMany(fetch = FetchType.LAZY, mappedBy = "entrepriseField", targetEntity = Gadgio.class)
-  private List<Gadgio>      personneSalaries = new ArrayList<Gadgio>();
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "entrepriseField", targetEntity = GadgioEntity.class)
+  private List<GadgioEntity> personneSalaries = new ArrayList<GadgioEntity>();
 
   /*
    * (non-Javadoc)
@@ -86,7 +85,7 @@ public class Entreprise implements Serializable
   /**
    * @return the personneSalaries
    */
-  public List<Gadgio> getPersonneSalaries()
+  public List<GadgioEntity> getPersonneSalaries()
   {
     return personneSalaries;
   }
@@ -95,7 +94,7 @@ public class Entreprise implements Serializable
    * @param personneSalaries
    *          the personneSalaries to set
    */
-  public void setPersonneSalaries(List<Gadgio> personneSalaries)
+  public void setPersonneSalaries(List<GadgioEntity> personneSalaries)
   {
     this.personneSalaries = personneSalaries;
   }
@@ -133,7 +132,7 @@ public class Entreprise implements Serializable
     {
       return false;
     }
-    Entreprise other = (Entreprise) obj;
+    EntrepriseEntity other = (EntrepriseEntity) obj;
     if (entrepriseId == null)
     {
       if (other.entrepriseId != null)

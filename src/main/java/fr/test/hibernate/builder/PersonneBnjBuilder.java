@@ -5,22 +5,22 @@
 // -----------------------------------------------------------------------------
 package fr.test.hibernate.builder;
 
-import fr.test.hibernate.entities.Gadgio;
+import fr.test.hibernate.entities.GadgioEntity;
 
 public class PersonneBnjBuilder
 {
 
-   private Gadgio personneBnj;
+   private GadgioEntity personneBnj;
 
    // ------------------------- Membres private -------------------------
    // ------------------------- Constructeur -------------------------
 
    public PersonneBnjBuilder()
    {
-      personneBnj = new Gadgio();
+      personneBnj = new GadgioEntity();
    }
 
-   public Gadgio build()
+   public GadgioEntity build()
    {
       return personneBnj;
    }

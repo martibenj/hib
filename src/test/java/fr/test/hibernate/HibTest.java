@@ -8,7 +8,7 @@ import org.junit.Test;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 import fr.test.hibernate.dao.GadgioDAO;
-import fr.test.hibernate.entities.Gadgio;
+import fr.test.hibernate.entities.GadgioEntity;
 import fr.test.hibernate.util.HibernateUtil;
 
 public class HibTest
@@ -19,10 +19,10 @@ public class HibTest
     // Creating POJO
     PodamFactory pojoFactory = new PodamFactoryImpl();
     String prenom = "le moche";
-    Gadgio gadgio1 = pojoFactory.manufacturePojo(Gadgio.class);
+    GadgioEntity gadgio1 = pojoFactory.manufacturePojo(GadgioEntity.class);
     gadgio1.setPourcentageMochitude(0);
 
-    Gadgio gadgio2 = pojoFactory.manufacturePojo(Gadgio.class);
+    GadgioEntity gadgio2 = pojoFactory.manufacturePojo(GadgioEntity.class);
     gadgio2.setPrenom(prenom);
     gadgio2.setPourcentageMochitude(100);
 

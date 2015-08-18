@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 18 ao??t 2015 16:09:34 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 18 ao??t 2015 16:13:48 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.test.hibernate.entities.Entreprise" table="ENTREPRISE">
+    <class name="fr.test.hibernate.entities.EntrepriseEntity" table="ENTREPRISEENTITY">
         <id name="entrepriseId" type="java.lang.Long">
             <column name="ENTREPRISEID" />
             <generator class="assigned" />
@@ -14,12 +14,12 @@
         <property name="slogan" type="java.lang.String">
             <column name="SLOGAN" />
         </property>
-        <list name="personneSalaries" inverse="false" table="GADGIO" lazy="true">
+        <list name="personneSalaries" inverse="false" table="GADGIOENTITY" lazy="true">
             <key>
                 <column name="ENTREPRISEID" />
             </key>
             <list-index></list-index>
-            <one-to-many class="fr.test.hibernate.entities.Gadgio" />
+            <one-to-many class="fr.test.hibernate.entities.GadgioEntity" />
         </list>
     </class>
 </hibernate-mapping>
