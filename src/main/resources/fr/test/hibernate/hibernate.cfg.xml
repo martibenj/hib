@@ -28,6 +28,6 @@
         <property name="hbm2ddl.auto">create</property>
         
         <mapping resource="fr/test/hibernate/Entreprise.hbm.xml"/>
-        <mapping resource="fr/test/hibernate/PersonneBnj.hbm.xml"/>
+        <mapping resource="fr/test/hibernate/Gadgio.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

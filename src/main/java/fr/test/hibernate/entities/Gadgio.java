@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "PERSONNEBNJ")
-public class PersonneBnj implements Serializable
+public class Gadgio implements Serializable
 {
 
   /** Serial UID */
@@ -122,7 +122,7 @@ public class PersonneBnj implements Serializable
     {
       return false;
     }
-    PersonneBnj other = (PersonneBnj) obj;
+    Gadgio other = (Gadgio) obj;
     if (age != other.age)
     {
       return false;

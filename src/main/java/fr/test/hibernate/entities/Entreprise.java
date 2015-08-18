@@ -35,8 +35,8 @@ public class Entreprise implements Serializable
   private String            slogan;
 
   @OneToMany(mappedBy = "trucMap", fetch = FetchType.LAZY, cascade = CascadeType.ALL,
-      targetEntity = PersonneBnj.class, orphanRemoval = true)
-  private List<PersonneBnj> personneSalaries = new ArrayList<PersonneBnj>();
+      targetEntity = Gadgio.class, orphanRemoval = true)
+  private List<Gadgio> personneSalaries = new ArrayList<Gadgio>();
 
   /*
    * (non-Javadoc)
@@ -87,7 +87,7 @@ public class Entreprise implements Serializable
   /**
    * @return the personneSalaries
    */
-  public List<PersonneBnj> getPersonneSalaries()
+  public List<Gadgio> getPersonneSalaries()
   {
     return personneSalaries;
   }
@@ -96,7 +96,7 @@ public class Entreprise implements Serializable
    * @param personneSalaries
    *          the personneSalaries to set
    */
-  public void setPersonneSalaries(List<PersonneBnj> personneSalaries)
+  public void setPersonneSalaries(List<Gadgio> personneSalaries)
   {
     this.personneSalaries = personneSalaries;
   }

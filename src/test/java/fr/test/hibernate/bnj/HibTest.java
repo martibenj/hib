@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
-import fr.test.hibernate.bnj.dao.PersonneBnjDAO;
-import fr.test.hibernate.entities.PersonneBnj;
+import fr.test.hibernate.dao.GadgioDAO;
+import fr.test.hibernate.entities.Gadgio;
 import fr.test.hibernate.util.HibernateUtil;
 
 public class HibTest
@@ -19,10 +19,10 @@ public class HibTest
     // Creating POJO
     PodamFactory pojoFactory = new PodamFactoryImpl();
     String prenom = "le moche";
-    PersonneBnj personne1 = pojoFactory.manufacturePojo(PersonneBnj.class);
+    Gadgio personne1 = pojoFactory.manufacturePojo(Gadgio.class);
     personne1.setPourcentageMochitude(0);
 
-    PersonneBnj personne2 = pojoFactory.manufacturePojo(PersonneBnj.class);
+    Gadgio personne2 = pojoFactory.manufacturePojo(Gadgio.class);
     personne2.setPrenom(prenom);
     personne2.setPourcentageMochitude(100);
 
@@ -34,6 +34,6 @@ public class HibTest
     session.close();
     HibernateUtil.closeSessionFactory();
 
-    Assert.assertEquals(1, PersonneBnjDAO.findPersonneBnjByPrenom(prenom).size());
+    Assert.assertEquals(1, GadgioDAO.findPersonneBnjByPrenom(prenom).size());
   }
 }
