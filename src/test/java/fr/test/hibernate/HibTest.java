@@ -1,4 +1,4 @@
-package fr.test.hibernate.bnj;
+package fr.test.hibernate;
 
 import junit.framework.Assert;
 
@@ -32,8 +32,8 @@ public class HibTest
     session.save(personne2);
     session.flush();
     session.close();
-    HibernateUtil.closeSessionFactory();
 
     Assert.assertEquals(1, GadgioDAO.findPersonneBnjByPrenom(prenom).size());
+    HibernateUtil.closeSessionFactory();
   }
 }

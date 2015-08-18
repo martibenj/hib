@@ -11,29 +11,30 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "PERSONNEBNJ")
+@Table(name = "GADGIO")
 public class Gadgio implements Serializable
 {
+  public static final String TABLENAME        = "GADGIO";
 
   /** Serial UID */
-  private static final long serialVersionUID = -8365901147684140166L;
+  private static final long  serialVersionUID = -8365901147684140166L;
 
   @Id
   @Column(name = "id", nullable = false, updatable = false)
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long              id;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long               id;
 
   @Column(name = "nom", nullable = false, unique = false)
-  private String            nom;
+  private String             nom;
 
   @Column(name = "prenom", nullable = false, unique = false)
-  private String            prenom;
+  private String             prenom;
 
   @Column(name = "age", nullable = false, unique = false)
-  private int               age;
+  private int                age;
 
   @Column(name = "percentmochitude", nullable = false, unique = false)
-  private int               pourcentageMochitude;
+  private int                pourcentageMochitude;
 
   @NotNull
   public String getNom()

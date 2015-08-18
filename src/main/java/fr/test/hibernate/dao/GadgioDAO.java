@@ -19,8 +19,8 @@ public final class GadgioDAO
   public static Gadgio findPersonneBnjByNomPrenom(String pNom, String pPrenom)
   {
     Session session = HibernateUtil.getSession();
-    Query query = session
-        .createQuery("from PERSONNEBNJ pb where pb.nom like :nom and pb.prenom like :prenom");
+    Query query = session.createQuery("from " + Gadgio.TABLENAME
+        + " pb where pb.nom like :nom and pb.prenom like :prenom");
     List<Gadgio> pbList = query.setParameter("nom", pNom).setParameter("prenom", pPrenom).list();
     return pbList.get(0);
   }
@@ -28,8 +28,8 @@ public final class GadgioDAO
   public static List<Gadgio> findPersonneBnjByPrenom(String pPrenom)
   {
     Session session = HibernateUtil.getSession();
-    Query query = session
-        .createQuery("from PERSONNEBNJ pb where pb.nom like :nom and pb.prenom like :prenom");
+    Query query = session.createQuery("from " + Gadgio.TABLENAME
+        + " pb where pb.nom like :nom and pb.prenom like :prenom");
     return query.setParameter("prenom", pPrenom).list();
   }
 }
