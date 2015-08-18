@@ -1,9 +1,8 @@
 package fr.test.hibernate;
 
-import junit.framework.Assert;
-
 import org.hibernate.Session;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 
 import uk.co.jemos.podam.api.PodamFactory;

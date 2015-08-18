@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 @Table(name = "ENTREPRISE")
@@ -23,9 +24,9 @@ public class Entreprise implements Serializable
   private static final long serialVersionUID = -8365901147684140166L;
 
   @Id
-  @Column(name = "id", nullable = false, updatable = false)
+  @Column(name = "entrepriseId", nullable = false, updatable = false)
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long              id;
+  private Long              entrepriseId;
 
   @Column(name = "nomQuiDechire", nullable = false, unique = true)
   private String            nomQuiDechire;
@@ -33,8 +34,8 @@ public class Entreprise implements Serializable
   @Column(name = "slogan", nullable = false, unique = false)
   private String            slogan;
 
-  @OneToMany(mappedBy = "trucMap", fetch = FetchType.LAZY, cascade = CascadeType.ALL,
-      targetEntity = Gadgio.class, orphanRemoval = true)
+  @PodamExclude
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "entrepriseField", targetEntity = Gadgio.class)
   private List<Gadgio>      personneSalaries = new ArrayList<Gadgio>();
 
   /*
@@ -44,8 +45,8 @@ public class Entreprise implements Serializable
   @Override
   public String toString()
   {
-    return "PersonneBnj [id=" + id + ", nomQuiDechire=" + nomQuiDechire + ", slogan=" + slogan
-        + ", personneSalaries=" + personneSalaries + "]";
+    return "PersonneBnj [entrepriseId=" + entrepriseId + ", nomQuiDechire=" + nomQuiDechire + ", slogan="
+        + slogan + ", personneSalaries=" + personneSalaries + "]";
   }
 
   /**
@@ -107,7 +108,7 @@ public class Entreprise implements Serializable
   {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((entrepriseId == null) ? 0 : entrepriseId.hashCode());
     result = prime * result + ((nomQuiDechire == null) ? 0 : nomQuiDechire.hashCode());
     result = prime * result + ((personneSalaries == null) ? 0 : personneSalaries.hashCode());
     result = prime * result + ((slogan == null) ? 0 : slogan.hashCode());
@@ -133,14 +134,14 @@ public class Entreprise implements Serializable
       return false;
     }
     Entreprise other = (Entreprise) obj;
-    if (id == null)
+    if (entrepriseId == null)
     {
-      if (other.id != null)
+      if (other.entrepriseId != null)
       {
         return false;
       }
     }
-    else if (!id.equals(other.id))
+    else if (!entrepriseId.equals(other.entrepriseId))
     {
       return false;
     }
@@ -178,6 +179,23 @@ public class Entreprise implements Serializable
       return false;
     }
     return true;
+  }
+
+  /**
+   * @return the entrepriseId
+   */
+  public Long getEntrepriseId()
+  {
+    return entrepriseId;
+  }
+
+  /**
+   * @param entrepriseId
+   *          the entrepriseId to set
+   */
+  public void setEntrepriseId(Long entrepriseId)
+  {
+    this.entrepriseId = entrepriseId;
   }
 
 }

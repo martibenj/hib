@@ -4,10 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import uk.co.jemos.podam.common.PodamExclude;
 
 @Entity
 @Table(name = "GADGIO")
@@ -19,9 +24,9 @@ public class Gadgio implements Serializable
   private static final long  serialVersionUID = -8365901147684140166L;
 
   @Id
-  @Column(name = "id", nullable = false, updatable = false)
+  @Column(name = "gadgioId", nullable = false, updatable = false)
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long               id;
+  private Long               gadgioId;
 
   @Column(name = "nom", nullable = false, unique = false)
   private String             nom;
@@ -35,6 +40,11 @@ public class Gadgio implements Serializable
   @Column(name = "percentmochitude", nullable = false, unique = false)
   private int                pourcentageMochitude;
 
+  @PodamExclude
+  @ManyToOne(fetch = FetchType.LAZY, targetEntity = Entreprise.class, optional = true)
+  @JoinColumn(name = "entrepriseId", nullable = true)
+  private Entreprise         entrepriseField;
+
   /*
    * (non-Javadoc)
    * @see java.lang.Object#hashCode()
@@ -42,25 +52,30 @@ public class Gadgio implements Serializable
   @Override
   public String toString()
   {
-    return "PersonneBnj [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age
+    return "PersonneBnj [gadgioId=" + gadgioId + ", nom=" + nom + ", prenom=" + prenom + ", age=" + age
         + ", pourcentageMochitude=" + pourcentageMochitude + "]";
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public int hashCode()
   {
     final int prime = 31;
     int result = 1;
     result = prime * result + age;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
+    result = prime * result + ((entrepriseField == null) ? 0 : entrepriseField.hashCode());
+    result = prime * result + ((gadgioId == null) ? 0 : gadgioId.hashCode());
     result = prime * result + ((nom == null) ? 0 : nom.hashCode());
     result = prime * result + pourcentageMochitude;
     result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
     return result;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean equals(Object obj)
   {
@@ -81,14 +96,25 @@ public class Gadgio implements Serializable
     {
       return false;
     }
-    if (id == null)
+    if (entrepriseField == null)
     {
-      if (other.id != null)
+      if (other.entrepriseField != null)
       {
         return false;
       }
     }
-    else if (!id.equals(other.id))
+    else if (!entrepriseField.equals(other.entrepriseField))
+    {
+      return false;
+    }
+    if (gadgioId == null)
+    {
+      if (other.gadgioId != null)
+      {
+        return false;
+      }
+    }
+    else if (!gadgioId.equals(other.gadgioId))
     {
       return false;
     }
@@ -119,23 +145,6 @@ public class Gadgio implements Serializable
       return false;
     }
     return true;
-  }
-
-  /**
-   * @return the id
-   */
-  public Long getId()
-  {
-    return id;
-  }
-
-  /**
-   * @param id
-   *          the id to set
-   */
-  public void setId(Long id)
-  {
-    this.id = id;
   }
 
   /**
@@ -204,6 +213,40 @@ public class Gadgio implements Serializable
   public void setPourcentageMochitude(int pourcentageMochitude)
   {
     this.pourcentageMochitude = pourcentageMochitude;
+  }
+
+  /**
+   * @return the entrepriseField
+   */
+  public Entreprise getEntrepriseField()
+  {
+    return entrepriseField;
+  }
+
+  /**
+   * @param entrepriseField
+   *          the entrepriseField to set
+   */
+  public void setEntrepriseField(Entreprise entrepriseField)
+  {
+    this.entrepriseField = entrepriseField;
+  }
+
+  /**
+   * @return the gadgioId
+   */
+  public Long getGadgioId()
+  {
+    return gadgioId;
+  }
+
+  /**
+   * @param gadgioId
+   *          the gadgioId to set
+   */
+  public void setGadgioId(Long gadgioId)
+  {
+    this.gadgioId = gadgioId;
   }
 
 }
