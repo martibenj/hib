@@ -3,6 +3,7 @@ package fr.test.hibernate;
 import junit.framework.Assert;
 
 import org.hibernate.Session;
+import org.junit.After;
 import org.junit.Test;
 
 import uk.co.jemos.podam.api.PodamFactory;
@@ -34,6 +35,11 @@ public class HibTest
     session.close();
 
     Assert.assertEquals(1, GadgioDAO.findPersonneBnjByPrenom(prenom).size());
+  }
+
+  @After
+  public void after()
+  {
     HibernateUtil.closeSessionFactory();
   }
 }

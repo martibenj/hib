@@ -19,8 +19,14 @@ public class HibernateUtil
 
   public static void closeSessionFactory()
   {
-    getSessionFactory().close();
-    getServiceRegistryBuilder().destroy(getServiceRegistry());
+    if (sessionFactory != null && !sessionFactory.isClosed())
+    {
+      sessionFactory.close();
+    }
+    if (serviceRegistryBuilder != null && serviceRegistry != null)
+    {
+      getServiceRegistryBuilder().destroy(getServiceRegistry());
+    }
   }
 
   private static Configuration getConfiguration()

@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ENTREPRISE")
@@ -36,7 +35,7 @@ public class Entreprise implements Serializable
 
   @OneToMany(mappedBy = "trucMap", fetch = FetchType.LAZY, cascade = CascadeType.ALL,
       targetEntity = Gadgio.class, orphanRemoval = true)
-  private List<Gadgio> personneSalaries = new ArrayList<Gadgio>();
+  private List<Gadgio>      personneSalaries = new ArrayList<Gadgio>();
 
   /*
    * (non-Javadoc)
@@ -52,7 +51,6 @@ public class Entreprise implements Serializable
   /**
    * @return the nomQuiDechire
    */
-  @NotNull
   public String getNomQuiDechire()
   {
     return nomQuiDechire;
