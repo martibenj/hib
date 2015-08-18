@@ -11,6 +11,6 @@
 		<!-- DB schema will be updated if needed -->
 		<!-- <property name="hbm2ddl.auto">update</property> -->
 		<mapping package="fr.test.hibernate"/>
-		<mapping class="fr.test.hibernate.Personne"/>
+		<mapping class="fr.test.hibernate.entities.Personne"/>
 	</session-factory>
 </hibernate-configuration>

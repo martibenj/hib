@@ -1,5 +1,7 @@
 package fr.test.hibernate;
 
+import fr.test.hibernate.entities.Personne;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

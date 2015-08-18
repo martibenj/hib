@@ -3,7 +3,7 @@
 		"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="fr.test.hibernate.Personne" table="table1">
+	<class name="fr.test.hibernate.entities.Personne" table="table1">
 		<id name="nom" >
 			<column name="nom" />
 		</id>
