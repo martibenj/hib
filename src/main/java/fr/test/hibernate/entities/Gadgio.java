@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "GADGIO")
@@ -35,52 +34,6 @@ public class Gadgio implements Serializable
 
   @Column(name = "percentmochitude", nullable = false, unique = false)
   private int                pourcentageMochitude;
-
-  @NotNull
-  public String getNom()
-  {
-    return nom;
-  }
-
-  public void setNom(String p_nom)
-  {
-    nom = p_nom;
-  }
-
-  public String getPrenom()
-  {
-    return prenom;
-  }
-
-  public void setPrenom(String p_prenom)
-  {
-    prenom = p_prenom;
-  }
-
-  public int getAge()
-  {
-    return age;
-  }
-
-  public void setAge(int p_age)
-  {
-    age = p_age;
-  }
-
-  /** @return the pourcentageMochitude */
-  public int getPourcentageMochitude()
-  {
-    return pourcentageMochitude;
-  }
-
-  /**
-   * @param p_pourcentageMochitude
-   *          the pourcentageMochitude to set
-   */
-  public void setPourcentageMochitude(int p_pourcentageMochitude)
-  {
-    pourcentageMochitude = p_pourcentageMochitude;
-  }
 
   /*
    * (non-Javadoc)
@@ -166,6 +119,91 @@ public class Gadgio implements Serializable
       return false;
     }
     return true;
+  }
+
+  /**
+   * @return the id
+   */
+  public Long getId()
+  {
+    return id;
+  }
+
+  /**
+   * @param id
+   *          the id to set
+   */
+  public void setId(Long id)
+  {
+    this.id = id;
+  }
+
+  /**
+   * @return the nom
+   */
+  public String getNom()
+  {
+    return nom;
+  }
+
+  /**
+   * @param nom
+   *          the nom to set
+   */
+  public void setNom(String nom)
+  {
+    this.nom = nom;
+  }
+
+  /**
+   * @return the prenom
+   */
+  public String getPrenom()
+  {
+    return prenom;
+  }
+
+  /**
+   * @param prenom
+   *          the prenom to set
+   */
+  public void setPrenom(String prenom)
+  {
+    this.prenom = prenom;
+  }
+
+  /**
+   * @return the age
+   */
+  public int getAge()
+  {
+    return age;
+  }
+
+  /**
+   * @param age
+   *          the age to set
+   */
+  public void setAge(int age)
+  {
+    this.age = age;
+  }
+
+  /**
+   * @return the pourcentageMochitude
+   */
+  public int getPourcentageMochitude()
+  {
+    return pourcentageMochitude;
+  }
+
+  /**
+   * @param pourcentageMochitude
+   *          the pourcentageMochitude to set
+   */
+  public void setPourcentageMochitude(int pourcentageMochitude)
+  {
+    this.pourcentageMochitude = pourcentageMochitude;
   }
 
 }

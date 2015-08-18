@@ -19,17 +19,17 @@ public class HibTest
     // Creating POJO
     PodamFactory pojoFactory = new PodamFactoryImpl();
     String prenom = "le moche";
-    Gadgio personne1 = pojoFactory.manufacturePojo(Gadgio.class);
-    personne1.setPourcentageMochitude(0);
+    Gadgio gadgio1 = pojoFactory.manufacturePojo(Gadgio.class);
+    gadgio1.setPourcentageMochitude(0);
 
-    Gadgio personne2 = pojoFactory.manufacturePojo(Gadgio.class);
-    personne2.setPrenom(prenom);
-    personne2.setPourcentageMochitude(100);
+    Gadgio gadgio2 = pojoFactory.manufacturePojo(Gadgio.class);
+    gadgio2.setPrenom(prenom);
+    gadgio2.setPourcentageMochitude(100);
 
     // Persisting POJO
     Session session = HibernateUtil.getSession();
-    session.save(personne1);
-    session.save(personne2);
+    session.save(gadgio1);
+    session.save(gadgio2);
     session.flush();
     session.close();
 
