@@ -8,8 +8,8 @@ import org.junit.Test;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 import fr.test.hibernate.bnj.dao.PersonneBnjDAO;
-import fr.test.hibernate.bnj.entities.PersonneBnj;
-import fr.test.hibernate.bnj.persistence.HibernateUtil;
+import fr.test.hibernate.entities.PersonneBnj;
+import fr.test.hibernate.util.HibernateUtil;
 
 public class HibTest
 {

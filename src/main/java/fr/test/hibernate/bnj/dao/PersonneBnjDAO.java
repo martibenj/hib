@@ -5,8 +5,8 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import fr.test.hibernate.bnj.entities.PersonneBnj;
-import fr.test.hibernate.bnj.persistence.HibernateUtil;
+import fr.test.hibernate.entities.PersonneBnj;
+import fr.test.hibernate.util.HibernateUtil;
 
 /**
  * Je ne sais pas s'il faut faire comme ça mais bon...

@@ -27,7 +27,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
         
-        <mapping resource="fr/test/hibernate/bnj/Entreprise.hbm.xml"/>
-        <mapping resource="fr/test/hibernate/bnj/PersonneBnj.hbm.xml"/>
+        <mapping resource="fr/test/hibernate/Entreprise.hbm.xml"/>
+        <mapping resource="fr/test/hibernate/PersonneBnj.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
