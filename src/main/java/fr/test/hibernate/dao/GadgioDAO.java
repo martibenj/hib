@@ -2,8 +2,10 @@ package fr.test.hibernate.dao;
 
 import java.util.List;
 
-import org.hibernate.Query;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import fr.test.hibernate.entities.GadgioEntity;
 import fr.test.hibernate.util.HibernateUtil;
@@ -16,19 +18,43 @@ import fr.test.hibernate.util.HibernateUtil;
 @SuppressWarnings("unchecked")
 public final class GadgioDAO
 {
-  public static GadgioEntity findPersonneBnjByNomPrenom(String pNom, String pPrenom)
+  public static List<GadgioEntity> findGadgio()
   {
-    Session session = HibernateUtil.getSession();
-    Query query = session.createQuery("from " + GadgioEntity.class.getName()
-        + " pb where pb.nom like :nom and pb.prenom like :prenom");
-    List<GadgioEntity> pbList = query.setParameter("nom", pNom).setParameter("prenom", pPrenom).list();
-    return pbList.get(0);
+    return HibernateUtil.getSession().createCriteria(GadgioEntity.class).list();
   }
 
-  public static List<GadgioEntity> findPersonneBnjByPrenom(String pPrenom)
+  public static List<GadgioEntity> findGadgioByNom(String pNom)
   {
     Session session = HibernateUtil.getSession();
-    Query query = session.createQuery("from " + GadgioEntity.class.getName() + " pb where pb.prenom like :prenom");
-    return query.setParameter("prenom", pPrenom).list();
+    Criteria crit = session.createCriteria(GadgioEntity.class);
+    crit.add(Restrictions.eq("nom", pNom));
+    crit.addOrder(Order.asc("nom"));
+    return crit.list();
+  }
+
+  public static List<GadgioEntity> findGadgioByPrenom(String pPrenom)
+  {
+    Session session = HibernateUtil.getSession();
+    Criteria crit = session.createCriteria(GadgioEntity.class);
+    crit.add(Restrictions.eq("prenom", pPrenom));
+    crit.addOrder(Order.asc("prenom"));
+    return crit.list();
+  }
+
+  public static GadgioEntity findGadgioWithNomAndPrenom(String pNom, String pPrenom)
+  {
+    Session session = HibernateUtil.getSession();
+    Criteria crit = session.createCriteria(GadgioEntity.class);
+    crit.add(Restrictions.eq("nom", pNom));
+    crit.add(Restrictions.eq("prenom", pPrenom));
+    return (GadgioEntity) crit.uniqueResult();
+  }
+
+  public static GadgioEntity findGadgioLePlusMoche()
+  {
+    Session session = HibernateUtil.getSession();
+    Criteria crit = session.createCriteria(GadgioEntity.class);
+    crit.addOrder(Order.desc("pourcentageMochitude"));
+    return (GadgioEntity) crit.list().get(0);
   }
 }

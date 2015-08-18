@@ -33,7 +33,9 @@ public class HibTest
     session.flush();
     session.close();
 
-    Assert.assertEquals(1, GadgioDAO.findPersonneBnjByPrenom(prenom).size());
+    Assert.assertEquals(1, GadgioDAO.findGadgioByPrenom(prenom).size());
+    Assert.assertEquals(prenom, GadgioDAO.findGadgioLePlusMoche().getPrenom());
+    Assert.assertEquals(2, GadgioDAO.findGadgio().size());
   }
 
   @After
