@@ -30,3 +30,8 @@ release.properties
 dependency-reduced-pom.xml
 gen/*
 R.java
+.classpath
+.idea
+.project
+.settings
+*.iml
