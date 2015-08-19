@@ -25,7 +25,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>PatateApp</finalName>
 		<plugins>
 			<!-- PLUGIN JETTY -->
 			<plugin>
