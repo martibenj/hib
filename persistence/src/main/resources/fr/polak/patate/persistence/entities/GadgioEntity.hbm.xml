@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 18 ao??t 2015 16:13:48 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 19 ao??t 2015 14:31:21 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.test.hibernate.entities.GadgioEntity" table="GADGIOENTITY">
+    <class name="fr.polak.patate.persistence.entities.GadgioEntity" table="GADGIOENTITY">
         <id name="gadgioId" type="java.lang.Long">
             <column name="GADGIOID" />
             <generator class="assigned" />
@@ -20,7 +20,7 @@
         <property name="pourcentageMochitude" type="int">
             <column name="POURCENTAGEMOCHITUDE" />
         </property>
-        <many-to-one name="entrepriseField" class="fr.test.hibernate.entities.EntrepriseEntity" fetch="join">
+        <many-to-one name="entrepriseField" class="fr.polak.patate.persistence.entities.EntrepriseEntity" fetch="join">
             <column name="ENTREPRISEFIELD" />
         </many-to-one>
     </class>

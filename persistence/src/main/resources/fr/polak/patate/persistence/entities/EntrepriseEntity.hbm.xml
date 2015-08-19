@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 18 ao??t 2015 16:13:48 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 19 ao??t 2015 14:31:21 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fr.test.hibernate.entities.EntrepriseEntity" table="ENTREPRISEENTITY">
+    <class name="fr.polak.patate.persistence.entities.EntrepriseEntity" table="ENTREPRISEENTITY">
         <id name="entrepriseId" type="java.lang.Long">
             <column name="ENTREPRISEID" />
             <generator class="assigned" />
@@ -19,7 +19,7 @@
                 <column name="ENTREPRISEID" />
             </key>
             <list-index></list-index>
-            <one-to-many class="fr.test.hibernate.entities.GadgioEntity" />
+            <one-to-many class="fr.polak.patate.persistence.entities.GadgioEntity" />
         </list>
     </class>
 </hibernate-mapping>
