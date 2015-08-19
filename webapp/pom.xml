@@ -6,7 +6,10 @@
 		<artifactId>papa</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+
 	<artifactId>webapp</artifactId>
+	<name>Appro Hibernate :: WebApp</name>
+	<description>Appro Hibernate :: WebApp</description>
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -15,9 +18,14 @@
 			<artifactId>persistence</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>PatateApp</finalName>
 		<plugins>
 			<!-- PLUGIN JETTY -->
 			<plugin>
@@ -26,12 +34,6 @@
 				<configuration>
 					<webXml>${basedir}/target/WEB-INF/web.xml</webXml>
 					<scanIntervalSeconds>1</scanIntervalSeconds>
-					<connectors>
-						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>8082</port>
-							<maxIdleTime>3600000</maxIdleTime>
-						</connector>
-					</connectors>
 				</configuration>
 			</plugin>
 		</plugins>

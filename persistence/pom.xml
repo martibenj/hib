@@ -6,7 +6,10 @@
 		<artifactId>papa</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
+
 	<artifactId>persistence</artifactId>
+	<name>Appro Hibernate :: Persistence</name>
+	<description>Appro Hibernate :: Persistence</description>
 	<packaging>jar</packaging>
 
 	<dependencies>
